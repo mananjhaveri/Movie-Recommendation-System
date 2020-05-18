@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 19 03:36:28 2020
+
+@author: Manan Jhaveri
+"""
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Movie Recommendation System</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Let's find great movies!</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('recommend')}}"method="post">
+    	<input type="text" name="movie" placeholder="enter a movie name" required="required"/>
+        
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">recommendations</button>
+    </form>
+ </div>
+
+
+</body>
+</html>
