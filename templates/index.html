@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html >
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
@@ -12,7 +10,7 @@
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styles.css') }}">
-  
+
 </head>
 
 <body>
@@ -22,7 +20,7 @@
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('recommend')}}"method="post">
     	<input type="text" name="movie" placeholder="enter a movie name" required="required"/>
-        
+
 
         <button type="submit" class="btn btn-primary btn-block btn-large">recommendations</button>
     </form>
