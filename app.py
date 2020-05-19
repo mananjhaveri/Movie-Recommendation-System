@@ -16,9 +16,9 @@ def recommend():
     '''
     user_input = [x for x in request.form.values()]
     movie = user_input[0]
-    df_transformed = pd.read_excel("df_transformed.xlsx")
-    print(df_transformed.head())
-    df_transformed.set_index("titles", inplace = True)
+    df_transformed = pd.read_excel("df_transformed.xlsx", index_col = "titles")
+    #print(df_transformed.head())
+    #df_transformed.set_index("titles", inplace = True)
     key = df_transformed.loc[movie]
     
     scores = df_transformed.dot(key)
