@@ -29,11 +29,13 @@ def recommend():
         key = df_transformed.loc[movie]
 
         scores = df_transformed.dot(key)
-        recommendation_list = list(scores.nlargest(11).index)
-
-        for rec in recommendation_list:
+        rec_list = list(scores.nlargest(11).index)
+        recommendation_list = []
+        for rec in rec_list:
+            ww = ""
             for w in rec:
-                w = w[0].upper() + w[1:]
+                ww = ww + " " + w[0].upper() + w[1:]
+            recommendation_list.append(ww)
     
     except:
         file1 = open("expansion_list.txt", "a")
