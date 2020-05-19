@@ -33,7 +33,7 @@ def recommend():
         recommendation_list = []
         for rec in rec_list:
             ww = ""
-            for w in rec:
+            for w in rec.split(" "):
                 ww = ww + " " + w[0].upper() + w[1:]
             recommendation_list.append(ww)
     
