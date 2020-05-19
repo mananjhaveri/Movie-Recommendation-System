@@ -23,11 +23,26 @@ def recommend():
     df_transformed.titles = df_transformed.titles.apply(m)
     df_transformed.set_index("titles", inplace = True)
     
-    key = df_transformed.loc[movie]
     
-    scores = df_transformed.dot(key)
-    recommendation_list = list(scores.nlargest(11).index)
+    try:
         
+        key = df_transformed.loc[movie]
+
+        scores = df_transformed.dot(key)
+        recommendation_list = list(scores.nlargest(11).index)
+
+        for rec in recommendation_list:
+            for w in rec:
+                w = w[0].upper() + w[1:]
+    
+    except:
+        file1 = open("expansion_list.txt", "a")
+        L = ["\n", movie]
+        file1.writelines(L)
+        file1.close() 
+        recommendation_list = ["", "1. Check the spellings", "2. Enter title in original language", "If you still can't find the movie, it may not be currently available in our database. Try another movie"]
+                               
+    
     return render_template('recommend.html', recommendation_text=recommendation_list[1:])
 
 if __name__ == "__main__":
