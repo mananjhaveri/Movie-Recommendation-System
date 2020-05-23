@@ -27,8 +27,9 @@ def recommend():
     try:
         
         key = df_transformed.loc[movie]
-
-        scores = df_transformed.dot(key.iloc[0])
+        if len(key) != 121:
+            key = key.iloc[0]
+        scores = df_transformed.dot(key)
         rec_list = list(scores.nlargest(11).index)
         recommendation_list = []
         for rec in rec_list:
