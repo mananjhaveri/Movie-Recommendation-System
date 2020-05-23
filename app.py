@@ -19,7 +19,7 @@ def recommend():
     '''
     user_input = [x for x in request.form.values()]
     movie = (user_input[0]).lower()
-    df_transformed = pd.read_csv("df_transformed.csv") #, index_col = "titles")
+    df_transformed = pd.read_csv("df_combined.csv") #, index_col = "titles")
     df_transformed.titles = df_transformed.titles.apply(m)
     df_transformed.set_index("titles", inplace = True)
     
