@@ -28,7 +28,7 @@ def recommend():
         
         key = df_transformed.loc[movie]
 
-        scores = df_transformed.dot(key)
+        scores = df_transformed.dot(key.iloc[0)
         rec_list = list(scores.nlargest(11).index)
         recommendation_list = []
         for rec in rec_list:
